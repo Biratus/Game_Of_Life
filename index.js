@@ -25,12 +25,13 @@ for(var i=0;i<CELL_NB;i++) {
         cells[i][j]=DEAD;
     }
 }
- /*for(var row = CELL_NB/2-Math.round(CELL_NB/4);row<CELL_NB/2+Math.round(CELL_NB/4);row++) {
-    for(var col=CELL_NB/2-Math.round(CELL_NB/4);col<CELL_NB/2+Math.round(CELL_NB/4);col++) {
-        cells[row][col]=Math.random()>0.5?ALIVE:DEAD;
-        initState.push({"row":row,"col":col,"val":cells[row][col]});
-    }
-}*/
+    var size=11;
+ for(var col=CELL_NB/2;col<CELL_NB/2+size;col++) {
+     for(var row=CELL_NB/2;row<CELL_NB/2+size;row++) {
+         cells[row][col]=ALIVE;
+     }
+     
+ }
 draw();
 }
 

@@ -19,17 +19,26 @@ function loadStruct() {
     });
 }
 
+function pentadecathlon(pos) {
+    for(var i=pos.x;i<pos.x+10;i++) {
+        cells[pos.y][i]=ALIVE;
+    }
+}
+
 function make(structName,pos) {
-    if(!struct[structName]) {
+    if(structName=="beacon") {
+        beacon(pos);
+    } else if(structName=="pentadecathlon") {
+        pentadecathlon(pos);
+    } 
+    else if(!struct[structName]) {
         console.log("No structure with matching name: "+structName);
         return;
-    } else if(structName=="beacon") {
-        beacon(pos);
-        draw();
-        return;
     }
-    for(var i = 0; i<struct[structName].length;i++) {
-        cells[pos.y+struct[structName][i][1]][pos.x+struct[structName][i][0]]=ALIVE;
+    else {
+        for(var i = 0; i<struct[structName].length;i++) {
+            cells[pos.y+struct[structName][i][1]][pos.x+struct[structName][i][0]]=ALIVE;
+        }
     }
     draw();
 }
