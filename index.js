@@ -2,11 +2,12 @@ var cells=[[]];
 var ctx;
 var canvas;
 var CELL_W,CELL_H;
-var CELL_NB=250;
+var CELL_NB=100;
 var ALIVE=1,DEAD=0;
 var time;
 var initState=[];
 var updateTime=100;
+var iteration=0;
 window.onload=function() {
 canvas = document.getElementById("canvas");;
 ctx=canvas.getContext("2d");
@@ -34,6 +35,7 @@ draw();
 }
 
 function update() {
+    iteration++;
     var toChange=[];
 for(var row=0;row<CELL_NB;row++) {
     for(var col=0;col<CELL_NB;col++) {
@@ -58,6 +60,7 @@ for(var i=0;i<toChange.length;i++) {
 }
 draw();
 time=setTimeout(update,updateTime);
+    $("#iteration").text("iteration: "+iteration);
 }
 
 

@@ -23,7 +23,7 @@ function make(structName,pos) {
     if(!struct[structName]) {
         console.log("No structure with matching name: "+structName);
         return;
-    } else if(strucName=="beacon") {
+    } else if(structName=="beacon") {
         beacon(pos);
         draw();
         return;
