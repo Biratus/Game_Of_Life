@@ -6,12 +6,14 @@ var CELL_NB=250;
 var ALIVE=1,DEAD=0;
 var time;
 var initState=[];
+var updateTime=100;
 window.onload=function() {
 canvas = document.getElementById("canvas");;
 ctx=canvas.getContext("2d");
 CELL_W=canvas.width/CELL_NB;
 CELL_H=canvas.height/CELL_NB;
 init();
+    loadStruct();
 //time=setTimeout(update,1000);
 }
 
@@ -55,7 +57,7 @@ for(var i=0;i<toChange.length;i++) {
     cells[toChange[i].row][toChange[i].col]=toChange[i].val;
 }
 draw();
-time=setTimeout(update,10);
+time=setTimeout(update,updateTime);
 }
 
 
